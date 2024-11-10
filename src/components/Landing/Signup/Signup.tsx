@@ -147,11 +147,9 @@ function Signup() {
 
       {error && <div className="error-message">{error}</div>}
       <div className="navigation-buttons">
-        {/* Show previous button if not on the first question */}
         {currentQuestionIndex > 0 && (
           <button onClick={prevQuestion}>Back</button>
         )}
-        {/* Show next button if not on the last question */}
         {currentQuestionIndex < questions.length - 1 ? (
           <button onClick={nextQuestion}>Next</button>
         ) : (

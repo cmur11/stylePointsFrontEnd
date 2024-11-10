@@ -7,6 +7,7 @@ import { User } from "./models/user-model";
 import Navigation from "./components/navigation/Navigation";
 import Landing from "./components/Landing/Landing";
 import Signup from "./components/Landing/Signup/Signup";
+import Welcome from "./components/Welcome/Welcome";
 
 function App() {
   const [data, setData] = useState<User>();
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/welcome" element={<Welcome />} />
         </Routes>
       </BrowserRouter>
     </div>
