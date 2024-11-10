@@ -1,9 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { User } from "./models/user-model";
+import Navigation from "./components/navigation/Navigation";
+import Landing from "./components/Landing/Landing";
+import Signup from "./components/Landing/Signup/Signup";
+
 function App() {
   const [data, setData] = useState<User>();
 
@@ -15,10 +19,13 @@ function App() {
   });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data?.firstName}</p>
-      </header>
+      <Navigation />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

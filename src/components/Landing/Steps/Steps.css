@@ -1,0 +1,40 @@
+.body{
+    color:#384a96;
+}
+.step-wrapper{
+    background-color:rgb(134, 200, 188);
+    padding-bottom:25px;
+}
+.step-image{
+    background-color: white;
+}
+
+.step-box{
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    text-align: center;  
+    padding: 15px;
+    
+}
+
+
+.image-wrapper {
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    width: 100%; 
+  }
+  
+ 
+  .step-image {
+    max-width: 200px;  
+    height: auto;  
+  }
+  
+
+  .step-header, .step-body {
+    margin-top: 10px; 
+    color: rgb(0, 30, 96);
+  }
+  
