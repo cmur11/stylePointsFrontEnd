@@ -8,6 +8,7 @@ import Navigation from "./components/navigation/Navigation";
 import Landing from "./components/Landing/Landing";
 import Signup from "./components/Landing/Signup/Signup";
 import Welcome from "./components/Welcome/Welcome";
+import Login from "./components/Login/Login";
 
 function App() {
   const [data, setData] = useState<User>();
@@ -24,6 +25,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/welcome" element={<Welcome />} />
         </Routes>

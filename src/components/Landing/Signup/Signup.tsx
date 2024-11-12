@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SignUpAnswer, SignUpQuestion } from "../../../models/SignUp";
-
+import "./Signup.css";
 function Signup() {
   const questions: SignUpQuestion[] = [
     {
@@ -61,49 +61,65 @@ function Signup() {
   const [answers, setAnswers] = useState<SignUpAnswer>(
     questions.reduce((accumulator: SignUpAnswer, question: SignUpQuestion) => {
       accumulator[question.id] = question.answer;
+
       return accumulator;
     }, {})
   );
   const handleAnswerChange = (questionId: number, newAnswer: string) => {
-    console.log("in here", newAnswer, questionId);
+    setError("");
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [questionId]: newAnswer,
     }));
   };
-
   const nextQuestion = () => {
     if (validateAnswer()) {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setError("");
+        // setError("");
       }
     }
   };
   const prevQuestion = () => {
     if (currentQuestionIndex > 0) {
+      setError("");
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
   };
   const validateAnswer = () => {
     const currentQuestion = questions[currentQuestionIndex];
     const currentAnswer = answers[currentQuestion.id];
-    if (
-      currentQuestion.type === "email" &&
-      !/\S+@\S+\.\S+/.test(currentAnswer)
-    ) {
-      setError("Please enter a valid email address.");
-      return false;
+
+    switch (currentQuestion.type) {
+      case "email":
+        if (!/\S+@\S+\.\S+/.test(currentAnswer)) {
+          setError("Please enter a valid email address.");
+          return false;
+        }
+        break;
+      case "password":
+        if (currentAnswer.length < 6) {
+          setError("Password must be at least 6 characters long.");
+          return false;
+        }
+        break;
+      case "select":
+        if (currentAnswer === "") {
+          setError("Please make a selection");
+          return false;
+        }
+        break;
+      default:
+        break;
     }
 
-    if (currentQuestion.type === "password" && currentAnswer.length < 6) {
-      setError("Password must be at least 6 characters long.");
-      return false;
-    }
-
-    // No validation errors, proceed
     setError("");
     return true;
+  };
+
+  const handleSubmit = () => {
+    // need to handlesubmit
+    console.log("in handle submitanswers", answers);
   };
   return (
     <div className="questions">
@@ -148,12 +164,16 @@ function Signup() {
       {error && <div className="error-message">{error}</div>}
       <div className="navigation-buttons">
         {currentQuestionIndex > 0 && (
-          <button onClick={prevQuestion}>Back</button>
+          <button className="back-button" onClick={prevQuestion}>
+            Back
+          </button>
         )}
         {currentQuestionIndex < questions.length - 1 ? (
-          <button onClick={nextQuestion}>Next</button>
+          <button className="next-button" onClick={nextQuestion}>
+            Next
+          </button>
         ) : (
-          <button onClick={() => alert("Questionnaire completed!")}>
+          <button className="submit-button" onClick={handleSubmit}>
             Submit
           </button>
         )}

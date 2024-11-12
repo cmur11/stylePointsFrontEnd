@@ -1,8 +1,7 @@
-.nav-container{
-    display:flex;
-
+.nav-container {
+  display: flex;
 }
 
-.brand-name{
-    color:aqua;
+.brand-name {
+  color: aqua;
 }
