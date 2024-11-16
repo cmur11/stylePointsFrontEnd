@@ -1,6 +1,6 @@
 import React from "react";
 import styleImg from "../../assets/mens-wardrobe.jpg";
-import "./Landing.css";
+import "./UserFirstTime.css";
 import Button from "react-bootstrap/Button";
 import { Step } from "../../models/steps.model";
 import RenderSteps from "./Steps/Steps";
@@ -8,6 +8,7 @@ import clipboard from "../../assets/clipboard.jpg";
 import help from "../../assets/help.png";
 import match from "../../assets/match-icon.png";
 import { useNavigate } from "react-router-dom";
+
 function Landing() {
   const navigate = useNavigate();
   const steps: Step[] = [
@@ -50,7 +51,9 @@ function Landing() {
         </div>
         <div className="quiz-row">
           <div className="styling-content">Online personal styling for you</div>
-          <Button variant="primary">Take your style quiz</Button>
+          <Button onClick={() => navigate("/signUp")} variant="primary">
+            Take your style quiz
+          </Button>
         </div>
       </div>
       <div className="step-wrapper">

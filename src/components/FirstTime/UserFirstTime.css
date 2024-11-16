@@ -1,0 +1,164 @@
+/* Landing.css */
+
+/* Base styling for the Landing page */
+.landing {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9;
+  padding: 40px 0;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Image Section */
+.image-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.wardrobe-image {
+  max-width: 70%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz Section */
+.quiz-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.styling-content {
+  font-size: 1.8rem;
+  font-weight: 700;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.quiz-row Button {
+  font-size: 1.1rem;
+  padding: 12px 30px;
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quiz-row Button:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+/* Steps Section */
+.step-wrapper {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.step-wrapper h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Step Card Styling */
+.step-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.step-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.step-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.step-body {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.step-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-top: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Get Started Button */
+.get-started {
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.get-started:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .quiz-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .styling-content {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .quiz-row Button {
+    margin-top: 20px;
+  }
+
+  .step-card {
+    margin: 20px auto;
+    max-width: 90%;
+  }
+
+  .step-image {
+    width: 60px;
+    height: 60px;
+  }
+}
